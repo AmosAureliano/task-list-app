@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, Image, FlatList, Modal, TouchableOpacity, TextInput} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, FlatList, Modal, TouchableOpacity, TextInput, AsyncStorage} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import {Ionicons} from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -22,17 +22,35 @@ export default function Home(){
 
     const { navigate } = useNavigation();
 
+    useEffect( () => {
+        async function loadLists(){
+            const listStorage = await AsyncStorage.getItem("@list");
+
+            if(listStorage)[
+                setList(JSON.parse(listStorage))
+            ]
+        }
+
+        loadLists();
+    }, []);
+
+    useEffect(() => {
+        async function saveList(){
+            await AsyncStorage.setItem("@list", JSON.stringify(list))
+        }
+        saveList();
+    },  [list]);
+
     function handleAdd(){
-        
         const data = {
             key: input,
             list: input
         }
 
         setList([...list, data]);
-        
         setOpen(false);
         setInput("");
+        alert("Salvo com sucesso")
     }
     return(
         <View style={styles.container}>
