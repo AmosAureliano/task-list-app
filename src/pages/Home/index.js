@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, FlatList } from 'react-native';
+import { View, Text, Image, FlatList, Modal, TouchableOpacity, TextInput} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import {Ionicons} from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -15,16 +15,24 @@ import styles from './styles';
 
 export default function Home(){
 
-    const [list, Setlist] = useState([
-        {key: 1, list: 'Festa de aniversário'},
-        {key: 2, list: 'Compras do mês'},
-        {key: 3, list: 'Tabalho escolar do João'}
-    ]);
+    const [list, setList] = useState([]);
+    const [open, setOpen] = useState(false)
+    const [input, setInput] = useState('');
+
 
     const { navigate } = useNavigation();
 
-    function navigateToCadastroList(){
-        navigate("CadastroList")
+    function handleAdd(){
+        
+        const data = {
+            key: input,
+            list: input
+        }
+
+        setList([...list, data]);
+        
+        setOpen(false);
+        setInput("");
     }
     return(
         <View style={styles.container}>
@@ -38,11 +46,38 @@ export default function Home(){
                 keyExtractor={ (item) => String(item.key) }
                 renderItem={ ({ item }) => <List data={item} /> }
             />
-            <RectButton style={styles.plusButton} onPress={navigateToCadastroList}>
+
+            <Modal animationType="slide" transparent={false} visible={open}>
+                <View style={styles.containerModal}>
+                    <View style={styles.header}>
+                        <TouchableOpacity onPress={ () =>  setOpen(false)}>
+                            <Ionicons 
+                                name="ios-arrow-back"
+                                size={45}
+                                color="black"
+                            />
+                        </TouchableOpacity>
+                        <Image source={Logo} style={styles.logo}/>
+                    </View>
+
+                    <Text style={styles.title}>Cadastrar nova Lista</Text>
+
+                    <View style={styles.textAreaContainer} >
+                        <TextInput
+                            style={styles.textArea}
+                            multiline={true}
+                            value={input}
+                            onChangeText = { (text) => setInput(text)}
+                        />
+                    </View>
+                    <TouchableOpacity style={styles.buttonSubmit} onPress={ handleAdd }><Text style={styles.textButton}>Cadastrar</Text></TouchableOpacity>
+                </View>
+            </Modal>
+            <RectButton style={styles.plusButton} onPress={() => setOpen(true) }>
                 <Ionicons 
-                name="ios-add"
-                size={45}
-                color="#ffff"
+                    name="ios-add"
+                    size={45}
+                    color="#ffff"
                 />
             </RectButton>
         </View>
