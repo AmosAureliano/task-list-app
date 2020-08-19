@@ -1,21 +1,29 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image, TextInput} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
+import { RectButton } from "react-native-gesture-handler";
 
 import styles from "./style";
 
 import Logo from '../../assets/images/logo.png'
-import { RectButton } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+
 export default function CadastroList(){
+
+    const {navigate} = useNavigation();
+
+    function back(){
+        navigate("Home");
+    }
     return(
         <View style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity>
-                <Ionicons 
-                name="ios-arrow-back"
-                size={45}
-                color="black"
-                />
+                <TouchableOpacity onPress={back}>
+                    <Ionicons 
+                    name="ios-arrow-back"
+                    size={45}
+                    color="black"
+                    />
                 </TouchableOpacity>
                 <Image source={Logo} style={styles.logo}/>
             </View>
