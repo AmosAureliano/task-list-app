@@ -55,15 +55,29 @@ export default function Home(){
     return(
         <View style={styles.container}>
             <Image source={Logo} style={styles.logoImg}/>
-            <Text style={styles.title}>Minhas listas</Text>
             
-            <FlatList
-                style={{marginTop: 20}}
-                showsHorizontalScrollIndicator={false}
-                data={list}
-                keyExtractor={ (item) => String(item.key) }
-                renderItem={ ({ item }) => <List data={item} /> }
-            />
+            
+            <View style={styles.containerFlatlist}>
+
+                <Text style={styles.title}>Minhas listas</Text>
+                <FlatList
+                    style={{marginTop: 20}}
+                    showsHorizontalScrollIndicator={false}
+                    data={list}
+                    keyExtractor={ (item) => String(item.key) }
+                    renderItem={ ({ item }) => <List data={item} /> }
+                />
+            </View>
+            
+
+            
+            <RectButton style={styles.plusButton} onPress={() => setOpen(true) }>
+                <Ionicons 
+                    name="ios-add"
+                    size={45}
+                    color="#ffff"
+                />
+            </RectButton>
 
             <Modal animationType="slide" transparent={false} visible={open}>
                 <View style={styles.containerModal}>
@@ -91,13 +105,6 @@ export default function Home(){
                     <TouchableOpacity style={styles.buttonSubmit} onPress={ handleAdd }><Text style={styles.textButton}>Cadastrar</Text></TouchableOpacity>
                 </View>
             </Modal>
-            <RectButton style={styles.plusButton} onPress={() => setOpen(true) }>
-                <Ionicons 
-                    name="ios-add"
-                    size={45}
-                    color="#ffff"
-                />
-            </RectButton>
         </View>
     )
 }

@@ -18,6 +18,17 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold"
     },
+    containerFlatlist:{
+        backgroundColor: "#fff",
+        elevation: 10,
+        width: "100%",
+        height: "100%",
+        alignItems: "center",
+        borderRadius: 30,
+        marginTop: 20,
+        marginBottom: 80,
+        paddingTop: 10
+    },  
     plusButton:{
         backgroundColor: "#50115B",
         position: "absolute",
@@ -29,7 +40,7 @@ const styles = StyleSheet.create({
         borderRadius: 60,
         alignItems: "center",
         justifyContent: "center",
-        elevation: 4,
+        elevation: 40,
         zIndex: 10
       
     },
