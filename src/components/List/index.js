@@ -5,9 +5,9 @@ import {RectButton} from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-export default function List({data}){
+export default function List({data, onPress}){
     return(
-    <RectButton style={styles.listComponent}><Text style={styles.titleComponent}>{data.list}</Text></RectButton>
+    <RectButton style={styles.listComponent} onPress={onPress}><Text style={styles.titleComponent}>{data.list}</Text></RectButton>
     );
 }
 

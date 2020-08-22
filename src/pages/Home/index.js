@@ -16,11 +16,16 @@ import styles from './styles';
 export default function Home(){
 
     const [list, setList] = useState([]);
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [openListItems, setOpenListItems] = useState(false)
     const [input, setInput] = useState('');
 
+    let keySaved = "";
 
-    const { navigate } = useNavigation();
+    function changeKey(key){
+        setOpenListItems(true);
+        keySaved = key;
+    }
 
     useEffect( () => {
         async function loadLists(){
@@ -65,7 +70,7 @@ export default function Home(){
                     showsHorizontalScrollIndicator={false}
                     data={list}
                     keyExtractor={ (item) => String(item.key) }
-                    renderItem={ ({ item }) => <List data={item} /> }
+                    renderItem={ ({ item }) => <List data={item} onPress={() => changeKey(String("oi")) }/> }
                 />
             </View>
             
@@ -79,7 +84,7 @@ export default function Home(){
                 />
             </RectButton>
 
-            <Modal animationType="slide" transparent={false} visible={open}>
+            <Modal animationType="slide" transparent={false} visible={open} statusBarTranslucent={true}>
                 <View style={styles.containerModal}>
                     <View style={styles.header}>
                         <TouchableOpacity onPress={ () =>  setOpen(false)}>
@@ -104,6 +109,35 @@ export default function Home(){
                     </View>
                     <TouchableOpacity style={styles.buttonSubmit} onPress={ handleAdd }><Text style={styles.textButton}>Cadastrar</Text></TouchableOpacity>
                 </View>
+            </Modal>
+
+            <Modal animationType="slide" transparent={false} visible={openListItems} statusBarTranslucent={true}>
+                    <View style={styles.header}>
+                        <TouchableOpacity onPress={ () =>  setOpenListItems(false)}>
+                            <Ionicons 
+                                name="ios-arrow-back"
+                                size={45}
+                                color="black"
+                            />
+                        </TouchableOpacity>
+                        <Image source={Logo} style={styles.logo}/>
+                    </View>
+                    <View style={styles.containerFlatlist}>
+
+                        <Text style={styles.title}>{keySaved}</Text>
+
+                        {/*
+                        <FlatList
+                            style={{marginTop: 20}}
+                            showsHorizontalScrollIndicator={false}
+                            data={list}
+                            keyExtractor={ (item) => String(item.key) }
+                            renderItem={ ({ item }) => <List data={item} onPress={() => setOpenListItems(true)}/> }
+                        />
+                        */}
+                    </View>
+
+                <TouchableOpacity onPress={() => setOpenListItems(false)}><Text>voltar</Text></TouchableOpacity>
             </Modal>
         </View>
     )
