@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "ListBuy",
-    "slug": "ListBuy",
+    "name": "TaskLit",
+    "slug": "TaskList",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/logo.png",
+    "icon": "./src/assets/images/logoApp.png",
     "splash": {
-      "image": "./src/assets/splash.png",
+      "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F9FAFF"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,8 +19,8 @@
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "./src/assets/favicon.png"
+    "android":{
+      "package" : "com.amos_aureliano.taskApp"
     }
   }
 }

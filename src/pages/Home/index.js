@@ -64,6 +64,7 @@ export default function Home(){
             <View style={styles.containerFlatlist}>
 
                 <Text style={styles.title}>Tarefas do dia</Text>
+                <Text>Clique no Check para concluir!</Text>
                 <FlatList
                     style={{marginTop: 20}}
                     showsHorizontalScrollIndicator={false}

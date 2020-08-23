@@ -8,7 +8,7 @@ import styles from './styles';
 export default function List({data, deleteItem}){
     return(
     <View style={styles.listComponent}>
-        <TouchableOpacity onPress={ () => deleteItem(data)}><Text><Ionicons name="md-checkmark-circle" size={30} color="#fff"/></Text></TouchableOpacity>
+        <TouchableOpacity onPress={ () => deleteItem(data)}><Text><Ionicons name="md-checkbox-outline" size={30} color="#fff"/></Text></TouchableOpacity>
         <Text style={styles.titleComponent}>{data.list}</Text></View>
     
     );
