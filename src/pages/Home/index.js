@@ -17,15 +17,9 @@ export default function Home(){
 
     const [list, setList] = useState([]);
     const [open, setOpen] = useState(false);
-    const [openListItems, setOpenListItems] = useState(false)
     const [input, setInput] = useState('');
 
-    let keySaved = "";
-
-    function changeKey(key){
-        setOpenListItems(true);
-        keySaved = key;
-    }
+ 
 
     useEffect( () => {
         async function loadLists(){
@@ -38,7 +32,7 @@ export default function Home(){
 
         loadLists();
     }, []);
-
+    
     useEffect(() => {
         async function saveList(){
             await AsyncStorage.setItem("@list", JSON.stringify(list))
@@ -64,13 +58,13 @@ export default function Home(){
             
             <View style={styles.containerFlatlist}>
 
-                <Text style={styles.title}>Minhas listas</Text>
+                <Text style={styles.title}>Tarefas do dia</Text>
                 <FlatList
                     style={{marginTop: 20}}
                     showsHorizontalScrollIndicator={false}
                     data={list}
                     keyExtractor={ (item) => String(item.key) }
-                    renderItem={ ({ item }) => <List data={item} onPress={() => changeKey(String("oi")) }/> }
+                    renderItem={ ({ item }) => <List data={item}/> }
                 />
             </View>
             
@@ -97,7 +91,7 @@ export default function Home(){
                         <Image source={Logo} style={styles.logo}/>
                     </View>
 
-                    <Text style={styles.title}>Cadastrar nova Lista</Text>
+                    <Text style={styles.title}>Cadastrar nova tarefa</Text>
 
                     <View style={styles.textAreaContainer} >
                         <TextInput
@@ -111,34 +105,7 @@ export default function Home(){
                 </View>
             </Modal>
 
-            <Modal animationType="slide" transparent={false} visible={openListItems} statusBarTranslucent={true}>
-                    <View style={styles.header}>
-                        <TouchableOpacity onPress={ () =>  setOpenListItems(false)}>
-                            <Ionicons 
-                                name="ios-arrow-back"
-                                size={45}
-                                color="black"
-                            />
-                        </TouchableOpacity>
-                        <Image source={Logo} style={styles.logo}/>
-                    </View>
-                    <View style={styles.containerFlatlist}>
-
-                        <Text style={styles.title}>{keySaved}</Text>
-
-                        {/*
-                        <FlatList
-                            style={{marginTop: 20}}
-                            showsHorizontalScrollIndicator={false}
-                            data={list}
-                            keyExtractor={ (item) => String(item.key) }
-                            renderItem={ ({ item }) => <List data={item} onPress={() => setOpenListItems(true)}/> }
-                        />
-                        */}
-                    </View>
-
-                <TouchableOpacity onPress={() => setOpenListItems(false)}><Text>voltar</Text></TouchableOpacity>
-            </Modal>
+            
         </View>
     )
 }

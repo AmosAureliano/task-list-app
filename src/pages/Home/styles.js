@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     logoImg: {
-        width: 250,
-        height: 60
+        width: 200,
+        height: 30
     },
     title:{
         color: "#50115B",
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F9FAFF'
     },
     header:{
-        paddingTop: 20,
+        paddingTop: 30,
         paddingLeft: 20,
         paddingRight: 20,
         flexDirection: "row",
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     logo:{
-        height: 30,
+        height: 20,
         width: 90,
     },
     title:{
@@ -70,13 +70,14 @@ const styles = StyleSheet.create({
     },
     textAreaContainer: {
         elevation: 1,
-        borderRadius: 4,
-        margin: 25
+        margin: 25,
+        borderRadius: 10
     
     },
     textArea: {
         height: 100,
         padding: 10,
+        borderRadius: 10,
         justifyContent: "flex-start",
         backgroundColor: "#ffff"
     },
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#50115B",
         margin: 20,
         padding: 10,
-        borderRadius: 4,
+        borderRadius: 20,
         alignItems: "center",
     },
     textButton:{
