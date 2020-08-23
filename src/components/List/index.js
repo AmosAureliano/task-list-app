@@ -1,13 +1,16 @@
 import React from "react";
-import {Text, TouchableOpacity} from "react-native";
-import {RectButton} from 'react-native-gesture-handler';
+import {Text, View, TouchableOpacity} from "react-native";
+import {Ionicons} from '@expo/vector-icons';
 
 
 import styles from './styles';
 
-export default function List({data, onPress}){
+export default function List({data, deleteItem}){
     return(
-    <RectButton style={styles.listComponent} onPress={onPress}><Text style={styles.titleComponent}>{data.list}</Text></RectButton>
+    <View style={styles.listComponent}>
+        <TouchableOpacity onPress={ () => deleteItem(data)}><Text><Ionicons name="md-checkmark-circle" size={30} color="#fff"/></Text></TouchableOpacity>
+        <Text style={styles.titleComponent}>{data.list}</Text></View>
+    
     );
 }
 

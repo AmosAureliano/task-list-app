@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback} from 'react';
 import { View, Text, Image, FlatList, Modal, TouchableOpacity, TextInput, AsyncStorage} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import {Ionicons} from '@expo/vector-icons';
@@ -51,6 +51,11 @@ export default function Home(){
         setInput("");
         alert("Salvo com sucesso")
     }
+
+    const deleteItem = useCallback((data) => {
+        const retornaListNoItemHandle = list.filter( r => r.key !== data.key);
+        setList(retornaListNoItemHandle);
+    });
     return(
         <View style={styles.container}>
             <Image source={Logo} style={styles.logoImg}/>
@@ -64,7 +69,7 @@ export default function Home(){
                     showsHorizontalScrollIndicator={false}
                     data={list}
                     keyExtractor={ (item) => String(item.key) }
-                    renderItem={ ({ item }) => <List data={item}/> }
+                    renderItem={ ({ item }) => <List data={item} deleteItem={deleteItem}/> }
                 />
             </View>
             
