@@ -2,7 +2,7 @@
 Aplicativo de tarefas diárias desenvolvido baseado na ideia do canal do youtube "Sujeito Programador". O app foi desenvolvido com React Native + Expo!
 
 ## Interface
-<img src="https://i.imgur.com/hWoSqFi.jpg" align="center" style="height: 300px"/>
+<img src="https://i.imgur.com/hWoSqFi.jpg" align="center" style="height: 30px"/>
 <img src="https://i.imgur.com/bZ04qQp.jpg" align="center"/>
 
 
