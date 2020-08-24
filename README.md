@@ -24,3 +24,5 @@ Aplicativo de tarefas diárias desenvolvido baseado na ideia do canal do youtube
 <a target="_blank" href="mailto:amos.aureliano@gmail.com">
   <img align="left" alt="Gmail" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" />
 </a>
+
+### React native APP
