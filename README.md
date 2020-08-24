@@ -2,12 +2,12 @@
 Aplicativo de tarefas diárias desenvolvido baseado na ideia do canal do youtube "Sujeito Programador". O app foi desenvolvido com React Native + Expo!
 
 ## Interface
-<img src="https://i.imgur.com/hWoSqFi.jpg" align="center" style="height: 30px"/>
-<img src="https://i.imgur.com/bZ04qQp.jpg" align="center"/>
+<img src="https://i.imgur.com/hWoSqFi.jpg" align="center" width="100px"/>
+<img src="https://i.imgur.com/bZ04qQp.jpg" align="center" width="100px"/>
 
 
 
-[Baixe aqui!](http://www.mediafire.com/file/1j3kn9967se3aby/TaskList-7da2ac75621d46018614bcc48e1decfe-signed.apk/file);
+[Baixe aqui!](http://www.mediafire.com/file/1j3kn9967se3aby/TaskList-7da2ac75621d46018614bcc48e1decfe-signed.apk/file)
 
 
 ## Autor
