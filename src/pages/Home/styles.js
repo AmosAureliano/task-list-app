@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#50115B",
         margin: 20,
         padding: 10,
-        borderRadius: 20,
+        borderRadius: 16,
         alignItems: "center",
     },
     textButton:{
