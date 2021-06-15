@@ -1,5 +1,5 @@
 # Task List App
-Aplicativo de tarefas diárias desenvolvido baseado na ideia do canal do youtube "Sujeito Programador". O app foi desenvolvido com React Native + Expo!
+Aplicativo de tarefas diárias. O app foi desenvolvido com React Native + Expo!
 
 ## Interface
 ### Home
